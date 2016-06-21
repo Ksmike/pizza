@@ -75,11 +75,11 @@ var Pizza = {
 	},
 	makeMyPizza: function () {
 		var pizzaList = document.querySelector('.pizza-list'),
-		listHTML = '';
+			listHTML = 'You have no saved Pizzas!';
 
 		if (typeof this.thePizza !== 'undefined') {
 			for (var i = 0; i < this.thePizza.toppings.length; i++) {
-				listHTML += this.generatePizzaList(i);
+				listHTML = this.generatePizzaList(i);
 			}
 
 			if (pizzaList) {
@@ -87,12 +87,15 @@ var Pizza = {
 			}
 		}
 
+		console.log('this.thePizza', this.thePizza);
+
 	},
 	generatePizzaList: function (i) {
+		var numberOf = i + 1;
 		return '<li><div class="myPizza" data-base="' + this.thePizza.base + '" data-topping="' + this.thePizza.toppings + '">' +
-			' This pizza has a ' + this.thePizza.base + ' base and has ' + i + ' toppings!</div></li>';
+			' This pizza has a ' + this.thePizza.base + ' base and has ' + numberOf + ' toppings!</div></li>';
 	}
-}
+};
 
 $(function() {
 	Pizza.init();
