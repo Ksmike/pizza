@@ -16,12 +16,16 @@ var Pizza = {
 		$('#savePizza').click(function () {
 			document.cookie = 'pizza=' + this.thePizza;
 			console.log('document.cookie', document.cookie);
-		});
+		}.bind(this));
 
 		$('#resetPizza').click(function () {
 			this.thePizza.base = '';
 			this.thePizza.toppings = [];
 			this.makeMyPizza();
+		}.bind(this));
+
+		$('body').on('click', '#whatAmI', function () {
+			alert('You have' + this.thePizza.toppings + 'in your pizza');
 		}.bind(this));
 
 	},
@@ -103,7 +107,7 @@ var Pizza = {
 	},
 	generatePizzaList: function (i) {
 		var numberOf = i + 1;
-		return '<li><div class="myPizza" data-base="' + this.thePizza.base + '" data-topping="' + this.thePizza.toppings + '">' +
+		return '<li><img id="whatAmI" src="img/pizza.png"/><div class="myPizza" data-base="' + this.thePizza.base + '" data-topping="' + this.thePizza.toppings + '">' +
 			' This pizza has a ' + this.thePizza.base + ' base and has ' + numberOf + ' toppings!</div></li>';
 	}
 };
