@@ -1,4 +1,5 @@
 "use strict";
+
 var Pizza = {
 	toppings: ['Cheese', 'Tomato', 'Pepperoni', 'Peppers', 'Onions', 'Bacon', 'Olives'],
 	bases: ['Thin', 'Deep Pan', 'stonebake'],
@@ -25,7 +26,7 @@ var Pizza = {
 		}.bind(this));
 
 		$('body').on('click', '#whatAmI', function () {
-			alert('You have' + this.thePizza.toppings + 'in your pizza');
+			alert('You have ' + this.thePizza.toppings + ' in your pizza');
 		}.bind(this));
 
 	},
@@ -93,8 +94,8 @@ var Pizza = {
 			listHTML = 'You have no saved Pizzas!';
 
 		if (typeof this.thePizza !== 'undefined') {
-			for (var i = 0; i < this.thePizza.toppings.length; i++) {
-				listHTML = this.generatePizzaList(i);
+			if (this.thePizza.base.length !== 0 || this.thePizza.toppings.length !== 0) {
+				listHTML = this.generatePizzaList(this.thePizza.toppings.length);
 			}
 
 			if (pizzaList) {
@@ -106,9 +107,8 @@ var Pizza = {
 
 	},
 	generatePizzaList: function (i) {
-		var numberOf = i + 1;
 		return '<li><img id="whatAmI" src="img/pizza.png"/><div class="myPizza" data-base="' + this.thePizza.base + '" data-topping="' + this.thePizza.toppings + '">' +
-			' This pizza has a ' + this.thePizza.base + ' base and has ' + numberOf + ' toppings!</div></li>';
+			' This pizza has a ' + this.thePizza.base + ' base and has ' + i + ' toppings!</div></li>';
 	}
 };
 
