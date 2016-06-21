@@ -1,6 +1,6 @@
 
 body {
-	background-color: lightgrey;
+	background-color: ghostwhite;
 	margin: 0;
     padding: 0;
     text-align: center;
@@ -10,12 +10,19 @@ body {
 	display: inline-flex;
 }
 
+.title {
+	position: absolute;
+	left: 45%;
+}
+
 .baseContainer, .toppingsContainer, .pizzaContainer {
 	border: 1px solid black;
 	margin: 20px;
 	padding: 30px;
 	text-align: center;
 	width: 200px;
+	position: relative;
+	top: 50px;
 }
 
 .base-list, .pizza-list, .toppings-list {

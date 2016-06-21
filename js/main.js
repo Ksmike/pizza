@@ -13,6 +13,15 @@ var Pizza = {
 		this.addButtonInteraction();
 		this.makeMyPizza();
 
+		$('#savePizza').click(function () {
+			document.cookie = this.thePizza;
+		});
+
+		$('#resetPizza').click(function () {
+			this.thePizza.base = '';
+			this.thePizza.toppings = [];
+		});
+
 	},
 	generateBaseTable: function () {
 		var baseList = document.querySelector('.base-list'),
