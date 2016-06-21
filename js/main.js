@@ -14,13 +14,15 @@ var Pizza = {
 		this.makeMyPizza();
 
 		$('#savePizza').click(function () {
-			document.cookie = this.thePizza;
+			document.cookie = 'pizza=' + this.thePizza;
+			console.log('document.cookie', document.cookie);
 		});
 
 		$('#resetPizza').click(function () {
 			this.thePizza.base = '';
 			this.thePizza.toppings = [];
-		});
+			this.makeMyPizza();
+		}.bind(this));
 
 	},
 	generateBaseTable: function () {
